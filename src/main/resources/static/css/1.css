@@ -1,0 +1,26 @@
+
+.class{
+    background-color: aquamarine;
+    border-radius: 20px;
+    width: 600px;
+    height: 400px;
+    margin:auto;
+    margin-top: 70px;
+    margin-bottom: 70px;
+    position: relative;         
+    }
+.class-1{background-color: lightcyan;}
+.class-2{margin: auto;width: 150px;}
+.class-3{text-align:center;}
+.class-5{margin: auto;width: 400px;padding: 15px;border-radius: 20px;}
+.class-6{min-width: 390px;height: 30px;background-color: whitesmoke;}
+body{
+    background-image: url("../images/DSC02463.JPG");
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 100%;
+    margin: 10%;
+}
+h1{text-align:left}
+.text{text-align: left;font-size:15px;}
+.text-2{padding-left: 0%;font-weight:bold}
