@@ -1,0 +1,124 @@
+div.frame{
+    margin: auto;
+    margin-top: 10%;
+    width: 900px;
+    border-style: double;
+    background-color: aliceblue;
+}
+
+div.header{
+
+    text-align: center;
+
+}
+
+div.text{
+    text-align: right;
+    margin-right: 30px;
+    margin-top: 30px;
+    box-sizing: border-box;
+}
+
+div.text2{
+    text-align: right;
+    margin-right: 30px;
+    box-sizing: border-box;
+}
+
+div.button1{
+        text-align: right;
+        margin-right: 30px;
+        margin-top: 30px;
+        margin-bottom: 30px;    
+}
+
+body {
+    background-image: url("../images/DSC02463.JPG");
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 100%;
+    margin: 0%;
+}
+
+label{
+    font-size:25px
+}
+
+input[type=text]:focus {
+    background-color: lightblue;
+  }
+ 
+input.title{
+    height: 35px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    width: 80%;
+}
+
+.content{
+    height: 300px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    width: 80%;
+    max-width: 80%;
+    min-width: 80%;
+}
+
+.button {
+    width: 160px;
+    height: 50px;
+    border-radius: 5px;
+    background-color:lawngreen;
+    color:black;
+    font-size: medium;   
+}
+
+#content-lable{
+    vertical-align: top;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    height: 70px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  
+.left {
+    float: left;
+    border-right:1px solid #bbb;
+    padding-left: 50px;
+  }
+  
+  .block {
+    display:block;
+    color: white;
+    text-align: center;
+    padding: 20px 16px;
+    text-decoration: none;
+    height: 300px;
+  }
+  
+  div a:hover:not(.active) {
+    background-color: #4CAF50;
+  }
+  
+  .active {
+    border-right:1px solid #bbb;
+    background-color: #4CAF50;
+    float: right;
+  }
+
+  .h1{
+    width: 240px;
+    margin: auto;
+    color: white;
+    padding-top: 10px;
+  }
+
+  

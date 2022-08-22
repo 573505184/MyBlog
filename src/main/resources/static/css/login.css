@@ -1,0 +1,40 @@
+.frame {
+    background-color: white;
+    margin: auto;
+    margin-top: 10%;
+    width: 400px;
+    padding: 25px;
+    border-radius: 20px;
+}
+
+.underscore {
+    min-width: 390px;
+    height: 40px;
+    border-style: none none outset none;
+    border-radius: 6px;
+}
+
+.button {
+    width: 130px;
+    height: 50;
+    border-radius: 20px;
+    background-color:orange;
+    color:black;
+    font-size: medium;
+}
+
+body {
+    background-image: url("../images/DSC02463.JPG");
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 100%;
+    margin: 0%;
+}
+
+label{
+    font-size:25px
+}
+
+input[type=text]:focus {
+    background-color: lightblue;
+  }

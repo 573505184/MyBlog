@@ -1,0 +1,78 @@
+div.frame {
+  margin: auto;
+  margin-top: 10%;
+  width: 900px;
+  border-style: double;
+  background-color: aliceblue;
+}
+
+.blog {
+  background-color: paleturquoise;
+  border-radius: 20px;
+  width: 600px;
+  height: 400px;
+  margin: auto;
+  margin-top: 70px;
+  margin-bottom: 70px;
+  position: relative;
+}
+
+.header {
+  background-color: paleturquoise;
+  padding: 20px;
+  text-align: center;
+}
+
+body {
+  background-image: url("../images/DSC02463.JPG");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  opacity: 100%;
+  margin: 0%;
+}
+
+#header {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  height: 70px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 16;
+}
+
+.left {
+  float: left;
+  border-right: 1px solid #bbb;
+  padding-left: 50px;
+}
+
+.block {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 20px 16px;
+  text-decoration: none;
+  height: 300px;
+}
+
+div a:hover:not(.active) {
+  background-color: #4CAF50;
+}
+
+.active {
+  border-right: 1px solid #bbb;
+  background-color: #4CAF50;
+  float: right;
+}
+
+.h1 {
+  width: 400px;
+  margin: auto;
+  color: white;
+  padding-top: 10px;
+}

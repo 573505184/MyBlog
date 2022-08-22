@@ -3,7 +3,8 @@
 |日付|作業内容|
 |--|--|
 |0818|設計図作成|
-|0819|RegisterとLoginの完成、及びBlogを修正した|
+|0819|Registerページ及びLoginページとBlogpeページを構築した|
+|0822|Blog-Userページ、Blog-Editorページの構築の追加と全てのページをCSSで修正した|
 
 ## ユースケース図
 ![ユースケース図](drawio/0818%3A1.jpg)
