@@ -1,41 +1,57 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="utf-8">
   <title>Register</title>
   <link rel="stylesheet" href="../static/css/register.css">
   <script>
-    function validate(){
-      var n1=document.getElementById()
+    function validate() {
+      var n1 = document.getElementById("password");
+      var n2 = document.getElementById("password1");
+      if (n1.value == n2.value) {
+        document.getElementById('message').style.color = 'green';
+        document.getElementById('message').innerHTML = 'Password match';
+        return true;
+      } else {
+        document.getElementById('message').style.color = 'red';
+        document.getElementById('message').innerHTML = 'Passwords do not match';
+        return false;
+      }
     }
   </script>
 </head>
-
 <body>
   <div class="frame">
     <h1>Register</h1>
     <p class="text">Please fill in this form to create an account.</p>
     <hr>
-    <form action="https://www.google.com" method="post">
+    <form action="https://www.google.com" onsubmit="return validate()" method="post">
       <input class="underscore" type="text" name="username" placeholder="Enter User name" required>
       <br>
       <br>
       <input class="underscore" type="text" name="Email" placeholder="Enter Email" pattern=".+@.+\..+" required>
       <br>
       <br>
-      <input class="underscore" type="password" name="password" placeholder="Enter Password" required>
+      <label>
+        <input class="underscore" type="password" id="password" name="password" placeholder="Enter Password" required>
+      </label>
       <br>
       <br>
-      <input class="underscore" type="password" name="password" placeholder="Repeat Password"  required>
-      <p><input type="checkbox" required>I accept the <a href="https://policies.google.com/privacy?hl=en-US" target="_blank" style="color:#116dff">Terms
+      <label>
+        <input class="underscore" type="password" id="password1" name="password1" placeholder="Repeat Password"
+          required>
+        <span id='message'></span>
+      </label>
+      <p><input type="checkbox" required>I accept the <a href="https://policies.google.com/privacy?hl=en-US"
+          target="_blank" style="color:#116dff">Terms
           & Privacy</a>.</p>
-    <div style="text-align: center">
-      <input type="submit" value="Register"  class="button">
-      <hr>
-      <p>Already have an account?<a href="Login.html" target="_blank" style="color:#116dff">Login here</a>.</p>
-    </div>
+      <div style="text-align: center">
+        <input type="submit" value="Register" class="button">
+        <hr>
+        <p>Already have an account?<a href="Login.html" target="_blank" style="color:#116dff">Login here</a>.</p>
+      </div>
     </form>
   </div>
 </body>
+
 </html>

@@ -36,6 +36,7 @@ body {
     background-image: url("../images/DSC02463.JPG");
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
     opacity: 100%;
     margin: 0%;
 }
@@ -48,11 +49,16 @@ input[type=text]:focus {
     background-color: lightblue;
   }
  
-input.title{
+.title{
     height: 35px;
     border: 2px solid #ccc;
     border-radius: 4px;
     width: 80%;
+    max-width: 80%;
+    min-width: 80%;
+    max-height:100px;
+    min-height: 35px;
+
 }
 
 .content{
@@ -62,6 +68,8 @@ input.title{
     width: 80%;
     max-width: 80%;
     min-width: 80%;
+    max-height:600px;
+    min-height: 300px;
 }
 
 .button {
@@ -77,7 +85,7 @@ input.title{
     vertical-align: top;
 }
 
-ul {
+#header {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -87,6 +95,7 @@ ul {
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: 16;
   }
   
 .left {
