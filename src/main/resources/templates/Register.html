@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Register</title>
-  <link rel="stylesheet" href="../static/css/register.css">
+  <link rel="stylesheet" href="css/register.css">
   <script>
     function validate() {
       var n1 = document.getElementById("password");
@@ -25,11 +25,11 @@
     <h1>Register</h1>
     <p class="text">Please fill in this form to create an account.</p>
     <hr>
-    <form action="https://www.google.com" onsubmit="return validate()" method="post">
+    <form action="/register" onsubmit="return validate()" method="post">
       <input class="underscore" type="text" name="username" placeholder="Enter User name" required>
       <br>
       <br>
-      <input class="underscore" type="text" name="Email" placeholder="Enter Email" pattern=".+@.+\..+" required>
+      <input class="underscore" type="text" name="email" placeholder="Enter Email" pattern=".+@.+\..+" required>
       <br>
       <br>
       <label>
@@ -48,7 +48,7 @@
       <div style="text-align: center">
         <input type="submit" value="Register" class="button">
         <hr>
-        <p>Already have an account?<a href="Login.html" target="_blank" style="color:#116dff">Login here</a>.</p>
+        <p>Already have an account?<a href="/login" target="_blank" style="color:#116dff">Login here</a>.</p>
       </div>
     </form>
   </div>

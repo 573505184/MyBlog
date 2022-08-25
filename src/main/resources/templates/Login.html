@@ -7,14 +7,15 @@
 
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-  <link rel="stylesheet" href="../static/css/login.css">
+  <link rel="stylesheet" href="css/login.css">
 </head>
 
 <body>
   <div class="frame">
     <h1>Login</h1>
     <hr>
-    <form action="https://www.google.com" method="post">
+    <p style="color: red" th:if="${error}">Wrong username or password!</p>
+    <form action="/login" method="post">
       <span class="material-symbols-outlined" style="color: blue;">person</span>
       <input type="text" name="username" placeholder="Enter User name" class="underscore" required>
       <br>
@@ -26,7 +27,7 @@
       <div style="text-align: center">
       <input type="submit" value="Login" class="button">
       <hr>
-      <p>Have no account yet?<a href="Register.html" target="_blank" style="color:#116dff">Register</a>.</p>
+      <p>Have no account yet?<a href="/register" target="_blank" style="color:#116dff">Register</a>.</p>
       </div>
     </form>
   </div>
