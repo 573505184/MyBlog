@@ -1,5 +1,7 @@
 package com.example.MyBlog.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,12 +15,25 @@ public class BlogService {
 	@Autowired
 	BlogRepository repository;
 
-	public boolean validateBlog(Account account,String title, String content) {
+	// 创建新博客
+	public boolean createBlog(Account account, String title, String content) {
+		repository.save(new Blog(account, title, content));
 		return true;
 	}
 
-	public boolean createBlog(Account account,String title, String content) {
-		repository.save(new Blog(account,title, content));
+	// 获取所有博客内容
+	public List<Blog> findAll() {
+		return repository.findAll();
+	}
+	
+	//获取用户博客内容
+	public List<Blog> findByUsername(String username) {
+		return repository.findByUsername(username);
+	}
+
+	// 删除博客
+	public boolean deleteById(Long id) {
 		return true;
 	}
+	
 }

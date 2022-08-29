@@ -20,49 +20,18 @@
 		</div>
 	</div>
 	<br>
-	<div style="margin-bottom: 70px">
-		<table class="blog">
-			<tr>
-				<th>About mewMew</th>
-			</tr>
-			<tr>
-				<td>
-					Mew is one of the fictional species of
-					creatures from Nintendo's and Game Freak's Pokémon media franchise cre
-					ated by Satoshi Tajiri. Mew is a small,pink, cat-like, Psychic-type Mythical Pokémon?
-				</td>
-			</tr>
-			<tr>
-		</table>
-		<table class="blog">
-			<table class="blog">
-				<tr>
-					<th>About mewMew</th>
-				</tr>
-				<tr>
-					<td>
-						Mew is one of the fictional species of
-						creatures from Nintendo's and Game Freak's Pokémon media franchise cre
-						ated by Satoshi Tajiri. Mew is a small,pink, cat-like, Psychic-type Mythical Pokémon?
-					</td>
-				</tr>
-				<tr>
-			</table>
-			<table class="blog">
-				<table class="blog">
-					<tr>
-						<th>About mewMew</th>
-					</tr>
-					<tr>
-						<td>
-							Mew is one of the fictional species of
-							creatures from Nintendo's and Game Freak's Pokémon media franchise cre
-							ated by Satoshi Tajiri. Mew is a small,pink, cat-like, Psychic-type Mythical Pokémon?
-						</td>
-					</tr>
-					<tr>
-				</table>
-	</div>
+	 </div>
+    <br>
+    <div style="margin-bottom: 70px" th:each="blog:${blogs}">
+        <table class="blog">
+            <tr>
+                <th><span th:text="${blog.title}"></span></th>
+            </tr>
+            <tr>
+                <td><span th:text="${blog.content}"></span></td>
+            </tr>
+        </table>
+    </div>
 	<div class="footer">
 		<p>© 2022 作成されました</p>
 	</div>

@@ -1,10 +1,15 @@
 package com.example.MyBlog.models;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Blog {
@@ -22,7 +27,11 @@ public class Blog {
 	@Column
 	private String content;
 
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="account_username")
 	private Account account;
+	
+	
 	
 	public Blog(Account account,String title,String content) {
 		this.account = account;
@@ -61,4 +70,5 @@ public class Blog {
 	public void setAccount(Account account) {
 		this.account = account;
 	}
+	
 }

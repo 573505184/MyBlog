@@ -1,5 +1,7 @@
 package com.example.MyBlog.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.security.core.context.SecurityContextHolder;
 //import org.springframework.security.core.userdetails.UserDetails;
@@ -9,7 +11,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.MyBlog.models.Account;
+import com.example.MyBlog.models.Blog;
 import com.example.MyBlog.services.AccountService;
+import com.example.MyBlog.services.BlogService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -18,40 +23,20 @@ import lombok.extern.slf4j.Slf4j;
 public class LoginController {
 	@Autowired
 	AccountService accountService;
+	@Autowired
+	BlogService blogService;
 	
 	@GetMapping("/login")
 	public String getlogin() {
 		return "Login.html";
 	}
 	
-	@GetMapping("/myblog")
-	public String getmylogin() {
-		return "Blog-User.html";
-	}
-	
-	@GetMapping("/blog")
-	public String getblog() {
-		return "Blog.html";
-	}
-	
-//	@GetMapping("/hello")
-//	public ModelAndView gethello(ModelAndView mav) {
-//		UserDetails user = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//		
-//		
-//		mav.addObject("name",user.getUsername());
-//		
-//		log.debug("WARN");
-////		log.warn("WARN");	
-//		
-//		mav.setViewName("Blog.html");
-//		return mav;
-//	}
 	
 	@PostMapping("/login")
 	public ModelAndView login(@RequestParam String username, @RequestParam String password, ModelAndView mav) {
 		if (accountService.validateAccount(username, password)) {
-			mav.addObject("name", username);
+			List<Blog>blogs=blogService.findAll();
+			mav.addObject("blogs", blogs);
 			mav.setViewName("Blog-User.html");
 		} else {
 			mav.addObject("error", true);
