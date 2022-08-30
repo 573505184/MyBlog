@@ -16,25 +16,25 @@
 		<div><a class="block active" href="/register">Register</a></div>
 		<div><a class="block active" href="/login">Login</a></div>
 		<div>
-			<h1 class="blog-h1">Welcome to OCK's Blog</h1>
+			<h1 class="blog-h1">Welcome to the Blog</h1>
 		</div>
 	</div>
 	<br>
-	 </div>
-    <br>
-    <div style="margin-bottom: 70px" th:each="blog:${blogs}">
-        <table class="blog">
-            <tr>
-                <th><span th:text="${blog.title}"></span></th>
-            </tr>
-            <tr>
-                <td><span th:text="${blog.content}"></span></td>
-            </tr>
-        </table>
-    </div>
-	<div class="footer">
-		<p>© 2022 作成されました</p>
 	</div>
+	<br>
+	<div style="margin-bottom: 70px" th:each="blog:${blogs}">
+		<table class="blog">
+			<tr>
+				<th><span th:text="${blog.title}"></span></th>
+			</tr>
+			<tr>
+				<td><span th:text="${blog.content}"></span></td>
+			</tr>
+		</table>
+	</div>
+	<!--<div class="footer">
+		<p>© 2022 作成されました</p>
+	</div>-->
 </body>
 
 </html>

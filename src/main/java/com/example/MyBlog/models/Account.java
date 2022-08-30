@@ -13,24 +13,24 @@ import javax.persistence.OneToMany;
 @Entity
 public class Account {
 	@Id
-	@GeneratedValue(strategy= GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
+
 	@Column
 	private String username;
-	
+
 	@Column
 	private String email;
-	
+
 	@Column
 	private String password;
 
-	public Account(String username,String email,String password) {
+	public Account(String username, String email, String password) {
 		this.username = username;
 		this.email = email;
 		this.password = password;
 	}
-	
+
 	public String getEmail() {
 		return email;
 	}
@@ -40,9 +40,9 @@ public class Account {
 	}
 
 	public Account() {
-		
+
 	}
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -66,9 +66,9 @@ public class Account {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-    @OneToMany(fetch = FetchType.LAZY,mappedBy="account")
-    
-    private List<Blog> blogs;
-    
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "account")
+
+	private List<Blog> blogs;
+
 }

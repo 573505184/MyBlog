@@ -26,14 +26,18 @@ public class BlogService {
 		return repository.findAll();
 	}
 	
-	//获取用户博客内容
-	public List<Blog> findByUsername(String username) {
-		return repository.findByUsername(username);
-	}
+//	//获取用户博客内容
+//	public List<Blog> findByUsername(String username) {
+//		return repository.findByUsername(username);
+//	}
 
 	// 删除博客
 	public boolean deleteById(Long id) {
 		return true;
+	}
+
+	public List<Blog> findByAccount(Account account) {
+		return repository.findAllByAccount(account);
 	}
 	
 }

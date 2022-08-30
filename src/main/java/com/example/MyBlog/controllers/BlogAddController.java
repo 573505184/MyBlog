@@ -3,6 +3,8 @@ package com.example.MyBlog.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +25,8 @@ import lombok.extern.slf4j.Slf4j;
 public class BlogAddController {
 	@Autowired
 	BlogService blogService;
-	private String username;
+	@Autowired
+	AccountService accountService;
 
 	// 打开添加博客页面
 	@GetMapping("/addblog")
@@ -34,11 +37,11 @@ public class BlogAddController {
 
 	// 添加博客
 	@PostMapping("/addblog")
-	public ModelAndView blogadd(@RequestParam Account account, @RequestParam String title, @RequestParam String content,
-			ModelAndView mav) {
-		if (blogService.createBlog(account, title, content)) {
+	public ModelAndView blogAdd(@RequestParam String title, @RequestParam String content, ModelAndView mav) {
+		UserDetails user = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		if (blogService.createBlog(accountService.findByUsername(user.getUsername()), title, content)) {
 			mav.addObject("name", title);
-			mav.setViewName("Blog-User.html");
+			mav.setViewName("redirect:/myblog");
 		} else {
 			mav.addObject("error", true);
 			mav.setViewName("Blog-Add.html");
@@ -46,9 +49,9 @@ public class BlogAddController {
 		return mav;
 	}
 
-	// 打开博客页面
+	// 打开博客首页
 	@GetMapping("/blog")
-	public ModelAndView getblog(ModelAndView mav) {
+	public ModelAndView getBlog(ModelAndView mav) {
 		List<Blog> blogs = blogService.findAll();
 		mav.addObject("blogs", blogs);
 		mav.setViewName("Blog.html");
@@ -57,12 +60,25 @@ public class BlogAddController {
 
 	// 打开用户博客页面
 	@GetMapping("/myblog")
-	public ModelAndView getmyblog(ModelAndView mav) {
-		List<Blog>blogs=blogService.findByUsername(username);
+	public ModelAndView getMyBlog(ModelAndView mav) {
+		UserDetails user = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		Account account = accountService.findByUsername(user.getUsername());
+		List<Blog> blogs = blogService.findByAccount(account);
 		mav.addObject("blogs", blogs);
+		mav.addObject("name", user.getUsername());
+		log.debug("WARN");
 		mav.setViewName("Blog-User.html");
 		return mav;
 	}
+
+//	// 打开用户博客页面
+//	@GetMapping("/myblog")
+//	public ModelAndView getmyblog(ModelAndView mav) {
+//		List<Blog>blogs=blogService.findByUsername(username);
+//		mav.addObject("blogs", blogs);
+//		mav.setViewName("Blog-User.html");
+//		return mav;
+//	}
 
 	// 根据登录名字找到blogs
 //	@GetMapping("/blog")

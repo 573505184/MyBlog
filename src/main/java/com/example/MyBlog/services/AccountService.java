@@ -1,5 +1,7 @@
 package com.example.MyBlog.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,5 +30,13 @@ public class AccountService {
 		}else{
 			return false;
 		}
+	}
+	
+	public Account findByUsername(String username) {
+		return repository.findByUsername(username);
+	}
+	
+	public List<Account> findAll() {
+		return repository.findAll();
 	}
 }

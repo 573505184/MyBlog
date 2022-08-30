@@ -21,7 +21,6 @@ public class RegisterController {
 	}
 	
 	
-	
 	@PostMapping("/register")
 	public ModelAndView login(@RequestParam String username,@RequestParam String email,@RequestParam String password, ModelAndView mav) {
 		if (accountService.createAccount(username,email,password)) {
