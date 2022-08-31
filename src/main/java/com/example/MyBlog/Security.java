@@ -31,14 +31,22 @@ public class Security extends WebSecurityConfigurerAdapter {
 	@Override
 	@Bean
 	public UserDetailsService userDetailsService() {
-		List<Account> accounts = accountService.findAll();
-		InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-		for (Account account : accounts) {
-			UserDetails user = User.withDefaultPasswordEncoder().username(account.getUsername())
-					.password(account.getPassword()).roles("USER").build();
-			manager.createUser(user);
-		}
+		UserDetails user = User.withDefaultPasswordEncoder()
+				.username("Alice")
+				.password("ABC12345")
+				.roles("USER")
+				.build();
+		
+		return new InMemoryUserDetailsManager(user);
+		
+//		List<Account> accounts = accountService.findAll();
+//		InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
+//		for (Account account : accounts) {
+//			UserDetails user = User.withDefaultPasswordEncoder().username(account.getUsername())
+//					.password(account.getPassword()).roles("USER").build();
+//			manager.createUser(user);
+//		}
 
-		return manager;
+//		return manager;
 	}
 }

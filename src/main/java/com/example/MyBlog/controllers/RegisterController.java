@@ -22,7 +22,8 @@ public class RegisterController {
 	
 	
 	@PostMapping("/register")
-	public ModelAndView login(@RequestParam String username,@RequestParam String email,@RequestParam String password, ModelAndView mav) {
+	public ModelAndView login(@RequestParam String username,
+			@RequestParam String email,@RequestParam String password, ModelAndView mav) {
 		if (accountService.createAccount(username,email,password)) {
 			mav.addObject("error", false);
 			mav.setViewName("Login.html");

@@ -33,6 +33,7 @@ public class LoginController {
 		return "Login.html";
 	}
 
+	
 	@GetMapping("/")
 	public String getindex() {
 		return "redirect:/myblog";
