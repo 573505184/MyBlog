@@ -11,6 +11,7 @@
 |0826|一つのユーザが複数のblogに対応することを実現した。|
 |0829|データベースのblog内容をWebページに表示させた。|
 |0830|Spring Securityを使用し、ユーザーがログインした後に個人blogの表示と追加を実現した。|
+|0831|LoginControllerとRegisterControllerの単体テストを行った|
 ## ユースケース図
 ![ユースケース図](drawio/0830%3A1.png)
 
