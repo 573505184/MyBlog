@@ -29,14 +29,13 @@ public class BlogAddController {
 	AccountService accountService;
 
 	// 打开添加博客页面
-	@GetMapping("/addblog")
-	public String getaddblog() {
-
+	@GetMapping("/blogadd")
+	public String getblogAdd() {
 		return "Blog-Add.html";
 	}
 
 	// 添加博客
-	@PostMapping("/addblog")
+	@PostMapping("/blogadd")
 	public ModelAndView blogAdd(@RequestParam String title, @RequestParam String content, ModelAndView mav) {
 		UserDetails user = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		if (blogService.createBlog(accountService.findByUsername(user.getUsername()), title, content)) {
