@@ -41,10 +41,7 @@ public class BlogAddController {
 		if (blogService.createBlog(accountService.findByUsername(user.getUsername()), title, content)) {
 			mav.addObject("name", title);
 			mav.setViewName("redirect:/myblog");
-		} else {
-			mav.addObject("error", true);
-			mav.setViewName("Blog-Add.html");
-		}
+		} 
 		return mav;
 	}
 

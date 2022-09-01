@@ -12,6 +12,7 @@
 |0829|データベースのblog内容をWebページに表示させた。|
 |0830|Spring Securityを使用し、ユーザーがログインした後に個人blogの表示と追加を実現した。|
 |0831|LoginControllerとRegisterControllerの単体テストを行った|
+|0901|BlogAddControllerとAccountServiceの単体テストを行った。個人プロジェクトの削除機能をこれから完璧にする
 ## ユースケース図
 ![ユースケース図](drawio/0830%3A1.png)
 

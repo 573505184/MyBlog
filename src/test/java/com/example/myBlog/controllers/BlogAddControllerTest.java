@@ -1,6 +1,7 @@
 package com.example.myBlog.controllers;
 
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.anonymous;
@@ -46,6 +47,7 @@ public class BlogAddControllerTest {
 		Account account = new Account("Alice", "123@qq.com", "123");
 		List<Account> accounts = List.of(new Account ("Alice","1234@qq.com", "ABC12345"));
 		when(accountService.findByUsername(any())).thenReturn(account);
+		when(blogService.createBlog(eq(account), any(), any())).thenReturn(true);
 		when(accountService.findAll()).thenReturn(accounts);
 		when(accountService.validateAccount(any(), any())).thenReturn(false);
 		when(accountService.validateAccount("Alice", "ABC12345")).thenReturn(true);
@@ -70,18 +72,6 @@ public class BlogAddControllerTest {
 	}
 	
 	@Test
-	public void testGetindex_Succeed() throws Exception {
-		RequestBuilder request = MockMvcRequestBuilders
-				.get("/")
-				.with(user("Alice"))
-				.with(csrf());	
-		
-		mockMvc.perform(request)
-				.andExpect(redirectedUrl("/myblog"));
-	}
-	
-	@Test
-	@WithMockUser(username="Alice")
 	public void testBlogAdd_CorrectInfo_Succeed() throws Exception{
 		UserDetails alice = User.withDefaultPasswordEncoder()
 				.username("Alice")
@@ -91,14 +81,40 @@ public class BlogAddControllerTest {
 		
 		RequestBuilder request = MockMvcRequestBuilders
 				.post("/blogadd")
-//				.with(csrf())
-//				.with(user("Alice"))
-//				.with(anonymous())
+				.with(csrf())
+				.with(user(alice))
 				.param("title", "会议")
 				.param("content", "时间地点");
 		
 		mockMvc.perform(request)
 				.andExpect(view().name("redirect:/myblog"));
+	}
+	
+	@Test
+	public void testGetBlogPage_Succeed() throws Exception{
+		RequestBuilder request = MockMvcRequestBuilders
+				.get("/blog")
+				.with(csrf());
+		
+		mockMvc.perform(request)
+				.andExpect(view().name("Blog.html"));
+	}
+	
+	@Test
+	public void testMyBlog_Succeed() throws Exception{
+		UserDetails alice = User.withDefaultPasswordEncoder()
+				.username("Alice")
+				.password("123")
+				.roles("USER")
+				.build();
+		
+		RequestBuilder request = MockMvcRequestBuilders
+				.get("/myblog")
+				.with(csrf())
+				.with(user(alice));
+		
+		mockMvc.perform(request)
+				.andExpect(view().name("Blog-User.html"));
 	}
 	
 }
